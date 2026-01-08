@@ -36,3 +36,8 @@ class TTS:
                 break
             time.wait(10)
         mixer.quit()
+
+    def play_beep(self) -> None:
+        mixer.init()
+        mixer.music.load("assets/beep.mp3")
+        mixer.music.play()
