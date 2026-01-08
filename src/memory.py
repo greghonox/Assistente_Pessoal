@@ -2,11 +2,12 @@ from json import load
 from json import dump, JSONDecodeError
 from typing import Any, Dict, List
 from datetime import datetime
+from os.path import join
 import re
 
 
 def get_memory() -> Dict[str, Any]:
-    with open("src/memory.json", "r", encoding="utf-8") as file:
+    with open(join("src", "memory.json"), "r", encoding="utf-8") as file:
         try:
             return load(file)
         except JSONDecodeError:
