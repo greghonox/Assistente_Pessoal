@@ -59,7 +59,6 @@ class Servo:
         self.log.info(f"Resposta: {response_text}")
 
         save_conversation(message, response_text)
-
         extract_user_info(message, response_text)
 
         if self.check_is_learning(message):

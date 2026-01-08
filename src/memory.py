@@ -5,9 +5,11 @@ from datetime import datetime
 from os.path import join
 import re
 
+json_memory = join("assets", "memory.json")
+
 
 def get_memory() -> Dict[str, Any]:
-    with open(join("src", "memory.json"), "r", encoding="utf-8") as file:
+    with open(json_memory, "r", encoding="utf-8") as file:
         try:
             return load(file)
         except JSONDecodeError:
@@ -20,7 +22,7 @@ def save_memory(message: str, response: str) -> None:
     memory["respostas_aprendidas"].append(
         {"pergunta": message, "resposta": response, "timestamp": datetime.now().isoformat()}
     )  # noqa: E501
-    with open("src/memory.json", "w", encoding="utf-8") as file:
+    with open(json_memory, "w", encoding="utf-8") as file:
         dump(memory, file, indent=4, ensure_ascii=False)
 
 
