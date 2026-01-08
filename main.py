@@ -47,7 +47,6 @@ class Main:
             if self.use_wake_word:
                 self.tts.play_beep()
                 self.stt.wait_for_wake_word()
-                self.tts.play_beep()
                 text = self.stt.recognize_after_wake_word()
             else:
                 self.tts.play_beep()

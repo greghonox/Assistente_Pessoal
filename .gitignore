@@ -148,4 +148,4 @@ cython_debug/
 *.sqlite
 *.sqlite3
 
-*.mp3
+*.mp3src/memory.json
