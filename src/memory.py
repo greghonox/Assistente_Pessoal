@@ -42,7 +42,7 @@ def save_conversation(message: str, response: str) -> None:
     if len(memory["historico_conversas"]) > 100:
         memory["historico_conversas"] = memory["historico_conversas"][-100:]
 
-    with open("src/memory.json", "w", encoding="utf-8") as file:
+    with open(json_memory, "w", encoding="utf-8") as file:
         dump(memory, file, indent=4, ensure_ascii=False)
 
 
@@ -98,5 +98,5 @@ def extract_user_info(message: str, response: str) -> None:
         if cidade_match:
             memory["informacoes_usuario"]["cidade"] = cidade_match.group(1)
 
-    with open("src/memory.json", "w", encoding="utf-8") as file:
+    with open(json_memory, "w", encoding="utf-8") as file:
         dump(memory, file, indent=4, ensure_ascii=False)
